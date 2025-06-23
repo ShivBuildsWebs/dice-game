@@ -1,0 +1,135 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  padding: 2rem;
+}
+
+
+#heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  color: #ffffff;
+  background: linear-gradient(to right, #ff00cc, #3333ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+#heading:hover {
+  transform: scale(1.1);
+}
+
+
+.container {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.player-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.player-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffccff;
+  text-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
+}
+
+
+.dice {
+  width: 220px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6), 0 0 40px rgba(0, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  animation: levitate 4s infinite ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dice:hover {
+  transform: scale(1.05) rotateZ(2deg);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+
+.dot {
+  width: 1.6rem;
+  height: 1.6rem;
+  background: radial-gradient(circle, #00fff7, #004bff);
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff;
+  transition: opacity 0.2s ease;
+}
+.dice:nth-of-type(2) .dot {
+  background: radial-gradient(circle, #ff6ec4, #7873f5);
+  box-shadow: 0 0 10px #ff00c8, 0 0 20px #ff00c8;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+
+@keyframes levitate {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+
+@media (max-width: 768px) {
+  #heading {
+    font-size: 2.5rem;
+  }
+
+  .dice {
+    width: 160px;
+    height: 160px;
+  }
+
+  .dot {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .player-title {
+    font-size: 1.2rem;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+}
